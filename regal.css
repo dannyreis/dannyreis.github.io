@@ -1,81 +1,434 @@
+/* ===========================
+   CSS Reset & Base Styles
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primary: #1a1a1a;
+    --color-secondary: #2d2d2d;
+    --color-accent: #d4a574;
+    --color-text: #ffffff;
+    --color-text-dark: #000000;
+    --color-border: #404040;
+    --color-overlay: rgba(0, 0, 0, 0.6);
+    --font-main: 'Lato', 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --transition-smooth: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
 body {
-	background-color: black;
-	font-family: "Avenir Light", sans-serif !important;
-	color: white;
-	font-size: 6pt;
+    background-color: var(--color-primary);
+    font-family: var(--font-main);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-weight: 300;
 }
 
-
-#regal {
-	position: relative;
-	width: 65%;
-	left: 17.5%;
-	right: 17.5%;
-}
-header {
-	width: 100%;
-	padding: 0;
-	margin: 0;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
-nav {
-	text-align: center;
-	margin: 0 auto;
-	width: 600px;
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
 }
 
-a:link {
-	text-decoration: none;
-	color: white;
+/* ===========================
+   Navigation
+   =========================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
 }
 
-#home { 
-   position: relative; 
-   width: 100%; /* for IE 6 */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
-#transbox { 
-   position: absolute;
-   left: 25%;
-   right: 25%;
-   top: 155px;
-   background-color: rgba(212, 212, 212, 0.8);
-   opacity: 0.7;
-   width: 50%;
-   margin: 0 auto;
-   text-align: center;
-   border:1px solid black;
-   border-radius: 4px;
+.nav-link {
+    position: relative;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    transition: var(--transition-smooth);
 }
 
-#homeh1 {
-    color: #000000;
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
 }
 
-#contact, #about{
-	margin-top: 50px;
-	text-align: center;
-	font-size: 10pt;
-	width: 100%;
+.nav-link:hover {
+    color: var(--color-accent);
 }
 
-#david, #aboutp {
-	text-align: center;
-	border: 1px solid white;
-	font-weight:100;
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 5px;
-	margin-top: 10px;
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
 }
 
-ul {
-	list-style-type: none;
-	text-align: center;
+/* ===========================
+   Header & Logo
+   =========================== */
+.header {
+    background-color: var(--color-primary);
+    padding: 2rem 0;
 }
 
-#services {
-	margin: 0;
-	padding: 0;
+.logo-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===========================
+   Hero Section
+   =========================== */
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-content {
+    background-color: rgba(212, 165, 116, 0.9);
+    padding: 2.5rem 3rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    backdrop-filter: blur(5px);
+}
+
+.hero-title {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--color-text-dark);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+/* ===========================
+   Sections
+   =========================== */
+.section {
+    padding: 4rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.content-box {
+    background-color: var(--color-secondary);
+    border: 1px solid var(--color-accent);
+    border-radius: 8px;
+    padding: 2.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================
+   About Section
+   =========================== */
+.about-section {
+    background-color: var(--color-primary);
+}
+
+.intro-text {
+    font-size: 1.125rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+}
+
+.content-box p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.subsection-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2rem 0 1.5rem 0;
+    color: var(--color-accent);
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.service-item {
+    background-color: rgba(212, 165, 116, 0.1);
+    border: 1px solid var(--color-border);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.service-item:hover {
+    background-color: rgba(212, 165, 116, 0.2);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* ===========================
+   Contact Section
+   =========================== */
+.contact-section {
+    background-color: var(--color-secondary);
+}
+
+.contact-box {
+    text-align: center;
+}
+
+.consultation-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+.contact-title {
+    font-size: 1rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    font-size: 1.125rem;
+    margin: 0;
+}
+
+.contact-label {
+    font-weight: 400;
+    color: var(--color-accent);
+    margin-right: 0.5rem;
+}
+
+.contact-link {
+    color: var(--color-text);
+    font-weight: 300;
+}
+
+.contact-link:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+.service-area {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* ===========================
+   Footer
+   =========================== */
+.footer {
+    background-color: var(--color-primary);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+.footer-tagline {
+    font-style: italic;
+    color: var(--color-accent);
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .nav-container {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-content {
+        padding: 2rem;
+    }
+    
+    .content-box {
+        padding: 2rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 0.75rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero {
+        min-height: 300px;
+    }
+    
+    .hero-content {
+        padding: 1.5rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .content-box {
+        padding: 1.5rem;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-item {
+        font-size: 1rem;
+    }
+}
+
+/* Desktop - Enhanced spacing */
+@media (min-width: 1200px) {
+    .section {
+        padding: 5rem 0;
+    }
+    
+    .content-box {
+        padding: 3rem;
+    }
 }
