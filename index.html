@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regal Heights Marble | Premium Tile & Stone Installation Since 1991</title>
     <meta name="description" content="Regal Heights Marble - Premier tile, natural stone, marble, and granite installation specialists serving Toronto and Ontario since 1991. Expert craftsmanship for residential and commercial projects.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/regal.png">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Regal Heights Marble | Premium Tile & Stone Installation Since 1991">
+    <meta property="og:description" content="Premier tile, natural stone, marble, and granite installation specialists serving Toronto and Ontario since 1991.">
+    <meta property="og:image" content="https://regalheightsmarble.ca/images/toronto.jpg">
+    <meta property="og:url" content="https://regalheightsmarble.ca">
+    <meta property="og:site_name" content="Regal Heights Marble">
+
     <link rel="stylesheet" type="text/css" href="regal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,96 +38,107 @@
             <a href="#contact" class="nav-link" data-section="contact">
                 <span class="nav-text">Contact</span>
             </a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Header -->
-    <header class="header" id="home">
-        <div class="logo-container">
-            <h1 class="logo-text">Regal Heights Marble</h1>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-image">
-            <img src="images/toronto.jpg" alt="Toronto Skyline" class="hero-bg">
-        </div>
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1 class="hero-title">Three Decades of Excellence</h1>
-                <p class="hero-subtitle">Master Craftsmen in Tile, Natural Stone, & Marble Installation</p>
+    <main>
+        <!-- Header -->
+        <header class="header" id="home">
+            <div class="logo-container">
+                <h1 class="logo-text">Regal Heights Marble</h1>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- About Section -->
-    <section class="section about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Us</h2>
-            <div class="content-box">
-                <p class="intro-text">Since 1991, Regal Heights Marble has been the premier choice for discerning clients seeking exceptional tile, natural stone, and marble installation.</p>
-                <p>Founded by David Reis, our company has built an unparalleled reputation for precision craftsmanship, attention to detail, and unwavering commitment to client satisfaction. With over three decades of specialized experience, we have successfully completed countless residential and commercial projects throughout the Greater Toronto Area and across Ontario.</p>
-                <p>Our team of master craftsmen combines traditional artisan techniques with modern installation methods to deliver results that exceed industry standards. We take pride in transforming spaces with the timeless elegance of tile, natural stone, and marble ensuring every project reflects our dedication to excellence.</p>
-                
-                <h3 class="subsection-title">Comprehensive Stone Solutions</h3>
-                <div class="services-grid">
-                    <div class="service-item">Natural Stone Installation</div>
-                    <div class="service-item">Granite Fabrication</div>
-                    <div class="service-item">Marble Installation</div>
-                    <div class="service-item">Exquisite Glass Tile Work</div>
-                    <div class="service-item">Artisan Mosaic Design</div>
-                    <div class="service-item">Expert Tile Installation</div>
-                    <div class="service-item">Custom Countertop Fabrication</div>
-                    <div class="service-item">Designer Backsplash Installation</div>
-                    <div class="service-item">Elegant Fireplace Surrounds</div>
-                    <div class="service-item">Premium Marble Slabs</div>
-                    <div class="service-item">Professional Stone Restoration</div>
-                    <div class="service-item">Maintenance & Repair Services</div>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-image">
+                <img src="images/toronto.jpg" alt="Toronto Skyline" class="hero-bg">
+            </div>
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h2 class="hero-title">Three Decades of Excellence</h2>
+                    <p class="hero-subtitle">Master Craftsmen in Tile, Natural Stone, & Marble Installation</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Gallery Section -->
-    <section class="section gallery-section" id="gallery">
-        <div class="container">
-            <h2 class="section-title">Our Work Gallery</h2>
-            <div class="content-box">
-                <p class="intro-text">Explore our portfolio of exquisite tile, natural stone, and marble installations. Each project showcases our commitment to craftsmanship and attention to detail.</p>
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Gallery images will be automatically loaded here -->
-                </div>
-                <div class="gallery-loading" id="galleryLoading">Loading gallery...</div>
-                <div class="gallery-empty" id="galleryEmpty" style="display: none;">
-                    <p>No images in gallery yet. Check back soon to see our latest projects!</p>
+        <!-- About Section -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <h2 class="section-title">About Us</h2>
+                <div class="content-box">
+                    <p class="intro-text">Since 1991, Regal Heights Marble has been the premier choice for discerning clients seeking exceptional tile, natural stone, and marble installation.</p>
+                    <p>Founded by David Reis, our company has built an unparalleled reputation for precision craftsmanship, attention to detail, and unwavering commitment to client satisfaction. With over three decades of specialized experience, we have successfully completed countless residential and commercial projects throughout the Greater Toronto Area and across Ontario.</p>
+                    <p>Our team of master craftsmen combines traditional artisan techniques with modern installation methods to deliver results that exceed industry standards. We take pride in transforming spaces with the timeless elegance of tile, natural stone, and marble ensuring every project reflects our dedication to excellence.</p>
+                    
+                    <h3 class="subsection-title">Comprehensive Stone Solutions</h3>
+                    <div class="services-grid">
+                        <div class="service-item">Natural Stone Installation</div>
+                        <div class="service-item">Granite Fabrication</div>
+                        <div class="service-item">Marble Installation</div>
+                        <div class="service-item">Exquisite Glass Tile Work</div>
+                        <div class="service-item">Artisan Mosaic Design</div>
+                        <div class="service-item">Expert Tile Installation</div>
+                        <div class="service-item">Custom Countertop Fabrication</div>
+                        <div class="service-item">Designer Backsplash Installation</div>
+                        <div class="service-item">Elegant Fireplace Surrounds</div>
+                        <div class="service-item">Premium Marble Slabs</div>
+                        <div class="service-item">Professional Stone Restoration</div>
+                        <div class="service-item">Maintenance & Repair Services</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Schedule Your Consultation</h2>
-            <div class="content-box contact-box">
-                <p class="consultation-text">Let us bring your vision to life with our expert craftsmanship and personalized service. Contact us today to discuss your natural stone project.</p>
-                <h3 class="contact-name">David Reis</h3>
-                <p class="contact-title">Principal & Master Craftsman</p>
-                <div class="contact-details">
-                    <p class="contact-item">
-                        <span class="contact-label">Phone:</span>
-                        <a href="tel:647-294-9444" class="contact-link">647-294-9444</a>
-                    </p>
-                    <p class="contact-item">
-                        <span class="contact-label">Email:</span>
-                        <a href="mailto:david@regalheightsmarble.ca" class="contact-link">david@regalheightsmarble.ca</a>
-                    </p>
+        <!-- Gallery Section -->
+        <section class="section gallery-section" id="gallery">
+            <div class="container">
+                <h2 class="section-title">Our Work Gallery</h2>
+                <div class="content-box">
+                    <p class="intro-text">Explore our portfolio of exquisite tile, natural stone, and marble installations. Each project showcases our commitment to craftsmanship and attention to detail.</p>
+                    <div class="gallery-wrapper">
+                        <button class="gallery-arrow gallery-arrow-left" aria-label="Scroll gallery left">&#10094;</button>
+                        <div class="gallery-grid" id="galleryGrid">
+                            <!-- Gallery images will be automatically loaded here -->
+                        </div>
+                        <button class="gallery-arrow gallery-arrow-right" aria-label="Scroll gallery right">&#10095;</button>
+                    </div>
+                    <div class="gallery-loading" id="galleryLoading">Loading gallery...</div>
+                    <div class="gallery-empty" id="galleryEmpty" style="display: none;">
+                        <p>No images in gallery yet. Check back soon to see our latest projects!</p>
+                    </div>
                 </div>
-                <p class="service-area">Proudly serving the Greater Toronto Area and throughout Ontario</p>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <h2 class="section-title">Schedule Your Consultation</h2>
+                <div class="content-box contact-box">
+                    <p class="consultation-text">Let us bring your vision to life with our expert craftsmanship and personalized service. Contact us today to discuss your natural stone project.</p>
+                    <h3 class="contact-name">David Reis</h3>
+                    <p class="contact-title">Principal & Master Craftsman</p>
+                    <div class="contact-details">
+                        <p class="contact-item">
+                            <span class="contact-label">Phone:</span>
+                            <a href="tel:647-294-9444" class="contact-link">647-294-9444</a>
+                        </p>
+                        <p class="contact-item">
+                            <span class="contact-label">Email:</span>
+                            <a href="mailto:david@regalheightsmarble.ca" class="contact-link">david@regalheightsmarble.ca</a>
+                        </p>
+                    </div>
+                    <p class="service-area">Proudly serving the Greater Toronto Area and throughout Ontario</p>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -124,6 +147,9 @@
             <p class="footer-tagline">Excellence in Tile, Natural Stone, and Marble Installation Since 1991</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 
     <script src="regal.js"></script>
 </body>

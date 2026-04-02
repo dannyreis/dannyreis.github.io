@@ -4,6 +4,10 @@
 (function() {
     'use strict';
     
+    // Module-scoped state (no window pollution)
+    let galleryImages = [];
+    let currentImageIndex = 0;
+    
     // Wait for DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', init);
     
@@ -12,6 +16,8 @@
         setupActiveNavigation();
         setupScrollEffects();
         setupGallery();
+        setupHamburgerMenu();
+        setupBackToTop();
     }
     
     // ===========================
@@ -38,9 +44,45 @@
                     
                     // Update URL hash without jumping
                     history.pushState(null, null, targetId);
+
+                    // Close mobile menu if open
+                    closeMobileMenu();
                 }
             });
         });
+    }
+    
+    // ===========================
+    // Hamburger Menu
+    // ===========================
+    function setupHamburgerMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navContainer = document.querySelector('.nav-container');
+        
+        if (!hamburger || !navContainer) return;
+        
+        hamburger.addEventListener('click', function() {
+            const isOpen = navContainer.classList.toggle('menu-open');
+            hamburger.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navContainer.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    function closeMobileMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navContainer = document.querySelector('.nav-container');
+        if (hamburger && navContainer) {
+            navContainer.classList.remove('menu-open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     }
     
     // ===========================
@@ -86,10 +128,9 @@
     // ===========================
     function setupScrollEffects() {
         const navbar = document.querySelector('.navbar');
-        let lastScroll = 0;
         
         window.addEventListener('scroll', throttle(function() {
-            const currentScroll = window.pageYOffset;
+            const currentScroll = window.scrollY;
             
             // Add shadow to navbar on scroll
             if (currentScroll > 50) {
@@ -97,12 +138,30 @@
             } else {
                 navbar.style.boxShadow = 'none';
             }
-            
-            lastScroll = currentScroll;
         }, 100));
         
         // Fade-in animation for content boxes on scroll
         observeElements();
+    }
+    
+    // ===========================
+    // Back to Top Button
+    // ===========================
+    function setupBackToTop() {
+        const btn = document.getElementById('backToTop');
+        if (!btn) return;
+        
+        window.addEventListener('scroll', throttle(function() {
+            if (window.scrollY > 600) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }, 100));
+        
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
     
     // ===========================
@@ -165,8 +224,7 @@
     function setupGallery() {
         loadGalleryImages();
         setupLightbox();
-        // Store gallery images globally for navigation
-        window.galleryImages = [];
+        setupGalleryArrows();
     }
     
     function loadGalleryImages() {
@@ -176,59 +234,69 @@
         
         if (!galleryGrid) return;
         
-        // Simple approach: Check for common image names in sequence
         const galleryPath = 'gallery/';
-        const imageExtensions = ['jpg', 'png'];
-        const loadedImages = [];
         
-        // Check for images named 1.jpg, 2.jpg, 3.jpg, etc.
-        function checkSequentialImages(maxImages = 20) {
-            const promises = [];
-            
-            for (let i = 1; i <= maxImages; i++) {
-                // Check each extension for this number
-                imageExtensions.forEach(ext => {
-                    const imagePath = `${galleryPath}${i}.${ext}`;
-                    promises.push(checkImage(imagePath));
-                });
-            }
-            
-            return Promise.all(promises);
-        }
-        
-        function checkImage(src) {
-            return new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => resolve(src);
-                img.onerror = () => resolve(null);
-                img.src = src;
+        // Load from manifest instead of probing
+        fetch(galleryPath + 'manifest.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Manifest not found');
+                return response.json();
+            })
+            .then(manifest => {
+                galleryImages = manifest.map(file => galleryPath + file);
+                
+                if (loadingElement) {
+                    loadingElement.style.display = 'none';
+                }
+                
+                if (galleryImages.length === 0) {
+                    if (emptyElement) {
+                        emptyElement.style.display = 'block';
+                    }
+                } else {
+                    displayGalleryImages(galleryImages);
+                }
+            })
+            .catch(() => {
+                // Fallback: probe for images if manifest is missing
+                probeGalleryImages(galleryPath, loadingElement, emptyElement);
             });
+    }
+
+    // Fallback for when manifest.json isn't available
+    function probeGalleryImages(galleryPath, loadingElement, emptyElement) {
+        const maxImages = 30;
+        const promises = [];
+        
+        for (let i = 1; i <= maxImages; i++) {
+            promises.push(checkImage(galleryPath + i + '.jpg'));
         }
         
-        async function loadImages() {
-            const results = await checkSequentialImages();
+        Promise.all(promises).then(results => {
             const validImages = results.filter(img => img !== null);
+            galleryImages = validImages;
             
-            // Store images globally for navigation
-            window.galleryImages = validImages;
-            
-            // Hide loading indicator
             if (loadingElement) {
                 loadingElement.style.display = 'none';
             }
             
             if (validImages.length === 0) {
-                // Show empty message
                 if (emptyElement) {
                     emptyElement.style.display = 'block';
                 }
             } else {
-                // Display loaded images
                 displayGalleryImages(validImages);
             }
-        }
-        
-        loadImages();
+        });
+    }
+
+    function checkImage(src) {
+        return new Promise((resolve) => {
+            const img = new Image();
+            img.onload = () => resolve(src);
+            img.onerror = () => resolve(null);
+            img.src = src;
+        });
     }
     
     function displayGalleryImages(images) {
@@ -258,12 +326,39 @@
         // Add fade-in animation to gallery items
         observeGalleryItems();
     }
+
+    // ===========================
+    // Gallery Scroll Arrows
+    // ===========================
+    function setupGalleryArrows() {
+        const leftArrow = document.querySelector('.gallery-arrow-left');
+        const rightArrow = document.querySelector('.gallery-arrow-right');
+        const galleryGrid = document.getElementById('galleryGrid');
+        
+        if (!leftArrow || !rightArrow || !galleryGrid) return;
+        
+        const scrollAmount = 370; // slightly more than item width + gap
+        
+        leftArrow.addEventListener('click', () => {
+            galleryGrid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        
+        rightArrow.addEventListener('click', () => {
+            galleryGrid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    }
     
+    // ===========================
+    // Lightbox
+    // ===========================
     function setupLightbox() {
         // Create lightbox elements
         const lightbox = document.createElement('div');
         lightbox.className = 'lightbox';
         lightbox.id = 'lightbox';
+        lightbox.setAttribute('role', 'dialog');
+        lightbox.setAttribute('aria-modal', 'true');
+        lightbox.setAttribute('aria-label', 'Image lightbox');
         
         const lightboxContent = document.createElement('div');
         lightboxContent.className = 'lightbox-content';
@@ -302,9 +397,6 @@
         
         document.body.appendChild(lightbox);
         
-        // Store current image index
-        window.currentImageIndex = 0;
-        
         // Navigation events
         prevButton.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -326,14 +418,34 @@
         // Close lightbox on close button click
         closeButton.addEventListener('click', closeLightbox);
         
-        // Close lightbox on Escape key
+        // Keyboard navigation + focus trap
         document.addEventListener('keydown', (e) => {
+            const lb = document.getElementById('lightbox');
+            if (!lb || !lb.classList.contains('active')) return;
+
             if (e.key === 'Escape') {
                 closeLightbox();
             } else if (e.key === 'ArrowLeft') {
                 navigateLightbox(-1);
             } else if (e.key === 'ArrowRight') {
                 navigateLightbox(1);
+            } else if (e.key === 'Tab') {
+                // Focus trap: keep focus within lightbox
+                const focusable = lb.querySelectorAll('button');
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                
+                if (e.shiftKey) {
+                    if (document.activeElement === first) {
+                        e.preventDefault();
+                        last.focus();
+                    }
+                } else {
+                    if (document.activeElement === last) {
+                        e.preventDefault();
+                        first.focus();
+                    }
+                }
             }
         });
     }
@@ -344,20 +456,21 @@
         const counter = document.getElementById('lightboxCounter');
         
         if (lightbox && lightboxImg) {
-            window.currentImageIndex = index || 0;
+            currentImageIndex = index || 0;
             lightboxImg.src = imageSrc;
             lightboxImg.alt = title || 'Gallery Image';
             
             // Update counter
-            if (counter && window.galleryImages) {
-                counter.textContent = `${window.currentImageIndex + 1} / ${window.galleryImages.length}`;
+            if (counter) {
+                counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
             }
-            
-            // Update navigation button states
-            updateNavigationButtons();
             
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+            // Move focus into lightbox for accessibility
+            const closeBtn = lightbox.querySelector('.lightbox-close');
+            if (closeBtn) closeBtn.focus();
         }
     }
     
@@ -366,75 +479,57 @@
         if (lightbox) {
             lightbox.classList.remove('active');
             document.body.style.overflow = ''; // Restore scrolling
+
+            // Return focus to the gallery item that opened the lightbox
+            const galleryItem = document.querySelector(`.gallery-item[data-index="${currentImageIndex}"]`);
+            if (galleryItem) galleryItem.focus();
         }
     }
     
     function navigateLightbox(direction) {
-        if (!window.galleryImages || window.galleryImages.length === 0) return;
+        if (!galleryImages || galleryImages.length === 0) return;
         
-        // Calculate new index
-        let newIndex = window.currentImageIndex + direction;
-        
-        // Wrap around for circular navigation
+        // Calculate new index (wrap around)
+        let newIndex = currentImageIndex + direction;
         if (newIndex < 0) {
-            newIndex = window.galleryImages.length - 1;
-        } else if (newIndex >= window.galleryImages.length) {
+            newIndex = galleryImages.length - 1;
+        } else if (newIndex >= galleryImages.length) {
             newIndex = 0;
         }
         
-        // Update current index
-        window.currentImageIndex = newIndex;
+        currentImageIndex = newIndex;
         
-        // Get new image
-        const newImageSrc = window.galleryImages[newIndex];
+        const newImageSrc = galleryImages[newIndex];
         const lightboxImg = document.getElementById('lightboxImg');
         const counter = document.getElementById('lightboxCounter');
         
         if (lightboxImg && newImageSrc) {
-            // Create a new image element for preloading
+            // Preload, then crossfade
             const newImg = new Image();
-            newImg.src = newImageSrc;
             
-            // Crossfade transition
-            newImg.onload = () => {
-                // Fade out current image
+            function updateLightboxImage() {
                 lightboxImg.style.opacity = '0';
                 
                 setTimeout(() => {
-                    // Update to new image
                     lightboxImg.src = newImageSrc;
                     lightboxImg.alt = `Gallery Image ${newIndex + 1}`;
                     
-                    // Update counter
                     if (counter) {
-                        counter.textContent = `${newIndex + 1} / ${window.galleryImages.length}`;
+                        counter.textContent = `${newIndex + 1} / ${galleryImages.length}`;
                     }
                     
-                    // Update navigation button states
-                    updateNavigationButtons();
-                    
-                    // Fade in new image
                     lightboxImg.style.opacity = '1';
                 }, 200);
-            };
-            
-            // If image is already cached, onload might not fire, so handle that case
-            if (newImg.complete) {
-                newImg.onload();
             }
-        }
-    }
-    
-    function updateNavigationButtons() {
-        const prevButton = document.querySelector('.lightbox-prev');
-        const nextButton = document.querySelector('.lightbox-next');
-        
-        if (prevButton && nextButton && window.galleryImages) {
-            // Always enable buttons for circular navigation
-            prevButton.style.opacity = '1';
-            prevButton.style.pointerEvents = 'auto';
-            nextButton.style.opacity = '1';
-            nextButton.style.pointerEvents = 'auto';
+
+            newImg.onload = updateLightboxImage;
+            newImg.src = newImageSrc;
+            
+            // Handle already-cached images
+            if (newImg.complete) {
+                newImg.onload = null; // Prevent double fire
+                updateLightboxImage();
+            }
         }
     }
     
@@ -445,12 +540,14 @@
         };
         
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach((entry, index) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
+                    // Use data-index for consistent stagger timing
+                    const itemIndex = parseInt(entry.target.getAttribute('data-index'), 10) || 0;
                     setTimeout(() => {
                         entry.target.style.opacity = '1';
                         entry.target.style.transform = 'translateY(0)';
-                    }, index * 100); // Staggered animation
+                    }, itemIndex * 100);
                 }
             });
         }, observerOptions);
