@@ -13,31 +13,27 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Regal Heights Marble | Premium Tile & Stone Installation Since 1991">
     <meta property="og:description" content="Premier tile, natural stone, marble, and granite installation specialists serving Toronto and Ontario since 1991.">
-    <meta property="og:image" content="https://regalheightsmarble.ca/images/toronto.jpg">
+    <meta property="og:image" content="https://regalheightsmarble.ca/gallery/22.jpg">
     <meta property="og:url" content="https://regalheightsmarble.ca">
     <meta property="og:site_name" content="Regal Heights Marble">
 
     <link rel="stylesheet" type="text/css" href="regal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-link" data-section="home">
-                <span class="nav-text">Home</span>
-            </a>
-            <a href="#about" class="nav-link" data-section="about">
-                <span class="nav-text">About</span>
-            </a>
-            <a href="#gallery" class="nav-link" data-section="gallery">
-                <span class="nav-text">Gallery</span>
-            </a>
-            <a href="#contact" class="nav-link" data-section="contact">
-                <span class="nav-text">Contact</span>
-            </a>
+            <a href="#home" class="nav-brand">Regal Heights Marble</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link" data-section="home">Home</a>
+                <a href="#about" class="nav-link" data-section="about">About</a>
+                <a href="#services" class="nav-link" data-section="services">Services</a>
+                <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
+                <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
             <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -47,22 +43,41 @@
     </nav>
 
     <main>
-        <!-- Header -->
-        <header class="header" id="home">
-            <div class="logo-container">
-                <h1 class="logo-text">Regal Heights Marble</h1>
-            </div>
-        </header>
-
         <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-image">
-                <img src="images/toronto.jpg" alt="Toronto Skyline" class="hero-bg">
+        <section class="hero" id="home">
+            <div class="hero-bg-wrapper">
+                <div class="hero-bg" style="background-image: url('gallery/22.jpg')"></div>
             </div>
-            <div class="hero-overlay">
-                <div class="hero-content">
-                    <h2 class="hero-title">Three Decades of Excellence</h2>
-                    <p class="hero-subtitle">Master Craftsmen in Tile, Natural Stone, & Marble Installation</p>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">Est. 1991 &mdash; Toronto, Ontario</p>
+                <h1 class="hero-title">Regal Heights Marble</h1>
+                <div class="hero-divider"></div>
+                <p class="hero-subtitle">Master Craftsmen in Tile, Natural Stone & Marble Installation</p>
+                <a href="#contact" class="hero-cta">Request a Consultation <span>&rarr;</span></a>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- Stats Bar -->
+        <section class="stats-bar">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="35">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1000">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,71 +85,196 @@
         <!-- About Section -->
         <section class="section about-section" id="about">
             <div class="container">
-                <h2 class="section-title">About Us</h2>
-                <div class="content-box">
-                    <p class="intro-text">Since 1991, Regal Heights Marble has been the premier choice for discerning clients seeking exceptional tile, natural stone, and marble installation.</p>
-                    <p>Founded by David Reis, our company has built an unparalleled reputation for precision craftsmanship, attention to detail, and unwavering commitment to client satisfaction. With over three decades of specialized experience, we have successfully completed countless residential and commercial projects throughout the Greater Toronto Area and across Ontario.</p>
-                    <p>Our team of master craftsmen combines traditional artisan techniques with modern installation methods to deliver results that exceed industry standards. We take pride in transforming spaces with the timeless elegance of tile, natural stone, and marble ensuring every project reflects our dedication to excellence.</p>
-                    
-                    <h3 class="subsection-title">Comprehensive Stone Solutions</h3>
-                    <div class="services-grid">
-                        <div class="service-item">Natural Stone Installation</div>
-                        <div class="service-item">Granite Fabrication</div>
-                        <div class="service-item">Marble Installation</div>
-                        <div class="service-item">Exquisite Glass Tile Work</div>
-                        <div class="service-item">Artisan Mosaic Design</div>
-                        <div class="service-item">Expert Tile Installation</div>
-                        <div class="service-item">Custom Countertop Fabrication</div>
-                        <div class="service-item">Designer Backsplash Installation</div>
-                        <div class="service-item">Elegant Fireplace Surrounds</div>
-                        <div class="service-item">Premium Marble Slabs</div>
-                        <div class="service-item">Professional Stone Restoration</div>
-                        <div class="service-item">Maintenance & Repair Services</div>
+                <div class="section-header">
+                    <span class="section-eyebrow">Our Story</span>
+                    <h2 class="section-title">Three Decades of<br><em>Unmatched Craftsmanship</em></h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p class="lead-text">Since 1991, Regal Heights Marble has been the premier choice for discerning clients seeking exceptional tile, natural stone, and marble installation.</p>
+                        <p>Founded by David Reis, our company has built an unparalleled reputation for precision craftsmanship, attention to detail, and unwavering commitment to client satisfaction. With over three decades of specialized experience, we have successfully completed countless residential and commercial projects throughout the Greater Toronto Area and across Ontario.</p>
+                        <p>Our team of master craftsmen combines traditional artisan techniques with modern installation methods to deliver results that exceed industry standards. We take pride in transforming spaces with the timeless elegance of tile, natural stone, and marble — ensuring every project reflects our dedication to excellence.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
+            </svg>
+        </div>
+
+        <!-- Services Section -->
+        <section class="section services-section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-eyebrow">What We Do</span>
+                    <h2 class="section-title">Comprehensive<br><em>Stone Solutions</em></h2>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="4" width="40" height="40" rx="2"/>
+                                <line x1="4" y1="24" x2="44" y2="24"/>
+                                <line x1="24" y1="4" x2="24" y2="44"/>
+                                <line x1="14" y1="4" x2="14" y2="24"/>
+                                <line x1="34" y1="24" x2="34" y2="44"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Tile Installation</h3>
+                        <p class="service-desc">Expert tile work for floors, walls, and backsplashes using premium materials and precise techniques.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="4" y="20" width="40" height="4" rx="1"/>
+                                <path d="M8 20V12C8 10 10 8 12 8H36C38 8 40 10 40 12V20"/>
+                                <line x1="8" y1="24" x2="8" y2="40"/>
+                                <line x1="40" y1="24" x2="40" y2="40"/>
+                                <line x1="4" y1="40" x2="14" y2="40"/>
+                                <line x1="34" y1="40" x2="44" y2="40"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Countertop Fabrication</h3>
+                        <p class="service-desc">Custom marble, granite, and quartz countertops crafted to perfectly fit your kitchen or bathroom.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="8" y="8" width="32" height="32" rx="2"/>
+                                <rect x="14" y="28" width="20" height="8" rx="1"/>
+                                <path d="M20 28V20L24 16L28 20V28"/>
+                                <line x1="18" y1="32" x2="30" y2="32"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Fireplace Surrounds</h3>
+                        <p class="service-desc">Elegant marble and stone fireplace surrounds that create a stunning focal point in any room.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="16" cy="16" r="4"/>
+                                <circle cx="32" cy="16" r="4"/>
+                                <circle cx="16" cy="32" r="4"/>
+                                <circle cx="32" cy="32" r="4"/>
+                                <circle cx="24" cy="24" r="3"/>
+                                <line x1="19" y1="13" x2="29" y2="13"/>
+                                <line x1="19" y1="35" x2="29" y2="35"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Mosaic & Glass Work</h3>
+                        <p class="service-desc">Artisan mosaic designs and exquisite glass tile installations for distinctive, one-of-a-kind spaces.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 44L4 8C4 6 6 4 8 4L40 4C42 4 44 6 44 8V44"/>
+                                <line x1="4" y1="44" x2="44" y2="44"/>
+                                <path d="M12 44V28H20V44"/>
+                                <rect x="26" y="12" width="10" height="8" rx="1"/>
+                                <rect x="12" y="12" width="10" height="8" rx="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Natural Stone Flooring</h3>
+                        <p class="service-desc">Premium natural stone flooring installation including marble, granite, limestone, and travertine.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M24 4L24 12"/>
+                                <path d="M12 8L16 14"/>
+                                <path d="M36 8L32 14"/>
+                                <circle cx="24" cy="24" r="10"/>
+                                <path d="M20 22C20 22 22 26 24 26C26 26 28 22 28 22"/>
+                                <line x1="8" y1="40" x2="40" y2="40"/>
+                                <line x1="12" y1="44" x2="36" y2="44"/>
+                            </svg>
+                        </div>
+                        <h3 class="service-name">Restoration & Repair</h3>
+                        <p class="service-desc">Professional stone restoration, polishing, and repair services to revive the beauty of your stone surfaces.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Divider -->
+        <div class="section-divider section-divider-flip">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
+            </svg>
+        </div>
 
         <!-- Gallery Section -->
         <section class="section gallery-section" id="gallery">
             <div class="container">
-                <h2 class="section-title">Our Work Gallery</h2>
-                <div class="content-box">
-                    <p class="intro-text">Explore our portfolio of exquisite tile, natural stone, and marble installations. Each project showcases our commitment to craftsmanship and attention to detail.</p>
-                    <div class="gallery-wrapper">
-                        <button class="gallery-arrow gallery-arrow-left" aria-label="Scroll gallery left">&#10094;</button>
-                        <div class="gallery-grid" id="galleryGrid">
-                            <!-- Gallery images will be automatically loaded here -->
-                        </div>
-                        <button class="gallery-arrow gallery-arrow-right" aria-label="Scroll gallery right">&#10095;</button>
-                    </div>
-                    <div class="gallery-loading" id="galleryLoading">Loading gallery...</div>
-                    <div class="gallery-empty" id="galleryEmpty" style="display: none;">
-                        <p>No images in gallery yet. Check back soon to see our latest projects!</p>
-                    </div>
+                <div class="section-header">
+                    <span class="section-eyebrow">Portfolio</span>
+                    <h2 class="section-title">Featured<br><em>Projects</em></h2>
+                </div>
+                <div class="gallery-masonry" id="galleryGrid">
+                    <!-- Loaded via JS -->
+                </div>
+                <div class="gallery-loading" id="galleryLoading">Loading gallery...</div>
+                <div class="gallery-empty" id="galleryEmpty" style="display: none;">
+                    <p>No images in gallery yet. Check back soon!</p>
                 </div>
             </div>
         </section>
 
+        <!-- Divider -->
+        <div class="section-divider">
+            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
+            </svg>
+        </div>
+
         <!-- Contact Section -->
         <section class="section contact-section" id="contact">
             <div class="container">
-                <h2 class="section-title">Schedule Your Consultation</h2>
-                <div class="content-box contact-box">
-                    <p class="consultation-text">Let us bring your vision to life with our expert craftsmanship and personalized service. Contact us today to discuss your natural stone project.</p>
-                    <h3 class="contact-name">David Reis</h3>
-                    <p class="contact-title">Principal & Master Craftsman</p>
-                    <div class="contact-details">
-                        <p class="contact-item">
-                            <span class="contact-label">Phone:</span>
-                            <a href="tel:647-294-9444" class="contact-link">647-294-9444</a>
-                        </p>
-                        <p class="contact-item">
-                            <span class="contact-label">Email:</span>
-                            <a href="mailto:david@regalheightsmarble.ca" class="contact-link">david@regalheightsmarble.ca</a>
-                        </p>
+                <div class="section-header">
+                    <span class="section-eyebrow">Get In Touch</span>
+                    <h2 class="section-title">Schedule Your<br><em>Consultation</em></h2>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-info-card">
+                        <h3 class="contact-name">David Reis</h3>
+                        <p class="contact-title">Principal & Master Craftsman</p>
+                        
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Phone</span>
+                                    <a href="tel:647-294-9444" class="contact-link">647-294-9444</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:david@regalheightsmarble.ca" class="contact-link">david@regalheightsmarble.ca</a>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <span class="contact-label">Service Area</span>
+                                    <span class="contact-value">Greater Toronto Area & Ontario</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="service-area">Proudly serving the Greater Toronto Area and throughout Ontario</p>
+
+
                 </div>
             </div>
         </section>
@@ -143,13 +283,29 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Regal Heights Marble. All rights reserved.</p>
-            <p class="footer-tagline">Excellence in Tile, Natural Stone, and Marble Installation Since 1991</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Regal Heights Marble</span>
+                    <p class="footer-tagline">Excellence in Tile, Natural Stone, and Marble Installation Since 1991</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Regal Heights Marble. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 
     <script src="regal.js"></script>
 </body>
