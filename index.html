@@ -17,12 +17,15 @@
     <meta property="og:url" content="https://regalheightsmarble.ca">
     <meta property="og:site_name" content="Regal Heights Marble">
 
+    <link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
     <link rel="stylesheet" type="text/css" href="regal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -34,7 +37,7 @@
                 <a href="#gallery" class="nav-link" data-section="gallery">Gallery</a>
                 <a href="#contact" class="nav-link" data-section="contact">Contact</a>
             </div>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button class="hamburger" id="hamburger" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
@@ -42,11 +45,11 @@
         </div>
     </nav>
 
-    <main>
+    <main id="main" tabindex="-1">
         <!-- Hero Section -->
         <section class="hero" id="home">
             <div class="hero-bg-wrapper">
-                <div class="hero-bg" style="background-image: url('gallery/22.jpg')"></div>
+                <div class="hero-bg"></div>
             </div>
             <div class="hero-overlay"></div>
             <div class="hero-content">
@@ -67,15 +70,21 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="35">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-target="35">35</span><span class="stat-suffix">+</span>
+                        </span>
                         <span class="stat-label">Years of Excellence</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="1000">0</span><span class="stat-suffix">+</span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-target="1000">1,000</span><span class="stat-suffix">+</span>
+                        </span>
                         <span class="stat-label">Projects Completed</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                        <span class="stat-value">
+                            <span class="stat-number" data-target="100">100</span><span class="stat-suffix">%</span>
+                        </span>
                         <span class="stat-label">Client Satisfaction</span>
                     </div>
                 </div>
@@ -99,9 +108,8 @@
             </div>
         </section>
 
-        <!-- Divider -->
-        <div class="section-divider">
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <div class="section-divider section-divider-to-surface" aria-hidden="true">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
             </svg>
         </div>
@@ -116,7 +124,7 @@
                 <div class="services-grid">
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="4" y="4" width="40" height="40" rx="2"/>
                                 <line x1="4" y1="24" x2="44" y2="24"/>
                                 <line x1="24" y1="4" x2="24" y2="44"/>
@@ -129,7 +137,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="4" y="20" width="40" height="4" rx="1"/>
                                 <path d="M8 20V12C8 10 10 8 12 8H36C38 8 40 10 40 12V20"/>
                                 <line x1="8" y1="24" x2="8" y2="40"/>
@@ -143,7 +151,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="8" y="8" width="32" height="32" rx="2"/>
                                 <rect x="14" y="28" width="20" height="8" rx="1"/>
                                 <path d="M20 28V20L24 16L28 20V28"/>
@@ -155,7 +163,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <circle cx="16" cy="16" r="4"/>
                                 <circle cx="32" cy="16" r="4"/>
                                 <circle cx="16" cy="32" r="4"/>
@@ -170,7 +178,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M4 44L4 8C4 6 6 4 8 4L40 4C42 4 44 6 44 8V44"/>
                                 <line x1="4" y1="44" x2="44" y2="44"/>
                                 <path d="M12 44V28H20V44"/>
@@ -183,7 +191,7 @@
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
-                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <svg aria-hidden="true" focusable="false" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M24 4L24 12"/>
                                 <path d="M12 8L16 14"/>
                                 <path d="M36 8L32 14"/>
@@ -200,9 +208,8 @@
             </div>
         </section>
 
-        <!-- Divider -->
-        <div class="section-divider section-divider-flip">
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <div class="section-divider" aria-hidden="true">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
             </svg>
         </div>
@@ -214,19 +221,15 @@
                     <span class="section-eyebrow">Portfolio</span>
                     <h2 class="section-title">Featured<br><em>Projects</em></h2>
                 </div>
-                <div class="gallery-masonry" id="galleryGrid">
-                    <!-- Loaded via JS -->
-                </div>
-                <div class="gallery-loading" id="galleryLoading">Loading gallery...</div>
-                <div class="gallery-empty" id="galleryEmpty" style="display: none;">
-                    <p>No images in gallery yet. Check back soon!</p>
-                </div>
+                <div class="gallery-masonry" id="galleryGrid"></div>
+                <p class="gallery-status" id="galleryLoading" role="status">Loading gallery...</p>
+                <p class="gallery-status" id="galleryEmpty" role="status" hidden>No images in the gallery yet. Check back soon.</p>
+                <p class="gallery-status" id="galleryError" role="alert" hidden>The gallery couldn't be loaded. Refresh the page to try again.</p>
             </div>
         </section>
 
-        <!-- Divider -->
-        <div class="section-divider">
-            <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <div class="section-divider section-divider-to-surface" aria-hidden="true">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
                 <path d="M0 80L60 68.7C120 57.3 240 34.7 360 26.7C480 18.7 600 25.3 720 30.7C840 36 960 40 1080 38.7C1200 37.3 1320 30.7 1380 27.3L1440 24V0H1380C1320 0 1200 0 1080 0C960 0 840 0 720 0C600 0 480 0 360 0C240 0 120 0 60 0H0V80Z" fill="var(--color-surface)"/>
             </svg>
         </div>
@@ -246,7 +249,7 @@
                         <div class="contact-details">
                             <div class="contact-item">
                                 <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                                 </div>
                                 <div>
                                     <span class="contact-label">Phone</span>
@@ -255,7 +258,7 @@
                             </div>
                             <div class="contact-item">
                                 <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                                 </div>
                                 <div>
                                     <span class="contact-label">Email</span>
@@ -264,7 +267,7 @@
                             </div>
                             <div class="contact-item">
                                 <div class="contact-icon">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 </div>
                                 <div>
                                     <span class="contact-label">Service Area</span>
@@ -303,8 +306,8 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
     </button>
 
     <script src="regal.js"></script>

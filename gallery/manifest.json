@@ -1,27 +1,152 @@
 [
-  "25.jpg",
-  "24.jpg",
-  "23.jpg",
-  "22.jpg",
-  "21.jpg",
-  "20.jpg",
-  "19.jpg",
-  "18.jpg",
-  "17.jpg",
-  "16.jpg",
-  "15.jpg",
-  "14.jpg",
-  "13.jpg",
-  "12.jpg",
-  "11.jpg",
-  "10.jpg",
-  "9.jpg",
-  "8.jpg",
-  "7.jpg",
-  "6.jpg",
-  "5.jpg",
-  "4.jpg",
-  "3.jpg",
-  "2.jpg",
-  "1.jpg"
+  {
+    "file": "25.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Bedroom with large white marble floor tiles and a black-framed window"
+  },
+  {
+    "file": "24.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Kitchen with a grey island, four stools, and white marble flooring"
+  },
+  {
+    "file": "23.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Double vanity and a walk-in shower lined in white marble tile"
+  },
+  {
+    "file": "22.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Open living space with a marble fireplace wall, marble floors, and a marble staircase"
+  },
+  {
+    "file": "21.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Bathroom with a grey vanity, stone countertop, and marble-look tile around the tub"
+  },
+  {
+    "file": "20.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Marble staircase with a glass railing next to a marble-tiled hall"
+  },
+  {
+    "file": "19.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Grey kitchen island opening onto a living area with white marble floors"
+  },
+  {
+    "file": "18.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Hall with marble floors and a glass shower lined in marble"
+  },
+  {
+    "file": "17.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Room with white double doors and large white marble floor tiles"
+  },
+  {
+    "file": "16.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Living room with marble floors, a stone fireplace wall, and sliding doors to a deck"
+  },
+  {
+    "file": "15.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Empty room with white marble floor tiles and a sliding glass door"
+  },
+  {
+    "file": "14.jpg",
+    "width": 2985,
+    "height": 1972,
+    "alt": "Living room with white marble floors and a marble fireplace feature wall"
+  },
+  {
+    "file": "13.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Kitchen and laundry room with marble-look floor tile and a white marble backsplash"
+  },
+  {
+    "file": "12.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Kitchen with a white marble backsplash and marble-look floor tile"
+  },
+  {
+    "file": "11.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Open room and hallway finished in large light marble floor tiles"
+  },
+  {
+    "file": "10.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Bathroom with a grey vanity and a shower lined in grey marble-look tile"
+  },
+  {
+    "file": "9.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Bathroom with a dark wood vanity and a shower lined in grey marble-look tile"
+  },
+  {
+    "file": "8.jpg",
+    "width": 1900,
+    "height": 1266,
+    "alt": "Bathroom with a tub and walls covered in white marble-look tile"
+  },
+  {
+    "file": "7.jpg",
+    "width": 2044,
+    "height": 1249,
+    "alt": "Bedroom with light wood-look floor tile and mirrored closet doors"
+  },
+  {
+    "file": "6.jpg",
+    "width": 2043,
+    "height": 1265,
+    "alt": "Basement room with light wood-look floor tile"
+  },
+  {
+    "file": "5.jpg",
+    "width": 2044,
+    "height": 1267,
+    "alt": "Basement room with light wood-look floor tile looking through to a kitchen"
+  },
+  {
+    "file": "4.jpg",
+    "width": 2043,
+    "height": 1257,
+    "alt": "Kitchen with a pale stone island, matching backsplash, and white cabinets"
+  },
+  {
+    "file": "3.jpg",
+    "width": 2041,
+    "height": 1239,
+    "alt": "Living room with a dark marble fireplace surround"
+  },
+  {
+    "file": "2.jpg",
+    "width": 2043,
+    "height": 1254,
+    "alt": "Bathroom with a vessel sink and a shower lined in white marble-look tile"
+  },
+  {
+    "file": "1.jpg",
+    "width": 2045,
+    "height": 1258,
+    "alt": "Bedroom with light wood-look floor tile and a wall of mirrored closet doors"
+  }
 ]
